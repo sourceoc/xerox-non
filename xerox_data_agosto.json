@@ -100,7 +100,7 @@
       "name": "Márcia Pinheiro",
       "discipline": "História",
       "quota": 400,
-      "used": 1,
+      "used": 232,
       "discount": 0,
       "id": 1753785483250
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-29T12:59:19.048Z",
+  "lastModified": "2025-07-29T13:00:47.265Z",
   "totalCopies": 8750,
-  "usedCopies": 379
+  "usedCopies": 610
 }
