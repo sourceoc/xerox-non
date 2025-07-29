@@ -180,7 +180,7 @@
       "name": "Maristela Salata",
       "discipline": "Espanhol",
       "quota": 400,
-      "used": 3,
+      "used": 100,
       "discount": 0,
       "id": 1753785483260
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-29T10:39:22.716Z",
+  "lastModified": "2025-07-29T10:39:26.562Z",
   "totalCopies": 8750,
-  "usedCopies": 83
+  "usedCopies": 180
 }
