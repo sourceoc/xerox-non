@@ -7,16 +7,25 @@ class XeroxManager {
             token: localStorage.getItem('github_token'),
             repo: localStorage.getItem('github_repo')
         };
+        this.isLoggedIn = localStorage.getItem('xerox_logged_in') === 'true';
         this.init();
     }
 
     init() {
-        this.loadData();
-        this.setupEventListeners();
-        this.populateDefaultData();
-        this.updateDisplay();
-        this.checkSyncConfig();
-        this.autoSync();
+        this.setupLoginListeners();
+        this.checkAuthStatus();
+        
+        if (this.isLoggedIn) {
+            this.showMainApp();
+            this.loadData();
+            this.setupEventListeners();
+            this.populateDefaultData();
+            this.updateDisplay();
+            this.checkSyncConfig();
+            this.autoSync();
+        } else {
+            this.showLoginScreen();
+        }
     }
 
     setupEventListeners() {
@@ -69,6 +78,11 @@ class XeroxManager {
 
         document.getElementById('testConnection').addEventListener('click', () => {
             this.testGithubConnection();
+        });
+
+        // Logout button
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            this.logout();
         });
 
         // Modal events
@@ -636,6 +650,96 @@ class XeroxManager {
                 });
             }, 1000); // Delay to avoid too many requests
         }
+    }
+
+    // Authentication Functions
+    setupLoginListeners() {
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleLogin();
+            });
+        }
+    }
+
+    checkAuthStatus() {
+        // Check if session expired (24 hours)
+        const loginTime = localStorage.getItem('xerox_login_time');
+        const now = Date.now();
+        const dayInMs = 24 * 60 * 60 * 1000; // 24 hours
+
+        if (loginTime && (now - parseInt(loginTime)) > dayInMs) {
+            this.logout();
+        }
+    }
+
+    handleLogin() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorDiv = document.getElementById('loginError');
+
+        // Simple authentication - você pode mudar essas credenciais
+        const validCredentials = {
+            'admin': 'xerox2024',
+            'central': 'senha123',
+            'usuario': 'cotas456'
+        };
+
+        if (validCredentials[username] && validCredentials[username] === password) {
+            // Login successful
+            this.login(username);
+        } else {
+            // Login failed
+            errorDiv.textContent = '❌ Usuário ou senha incorretos!';
+            setTimeout(() => {
+                errorDiv.textContent = '';
+            }, 3000);
+            
+            // Clear password field
+            document.getElementById('password').value = '';
+        }
+    }
+
+    login(username) {
+        this.isLoggedIn = true;
+        localStorage.setItem('xerox_logged_in', 'true');
+        localStorage.setItem('xerox_username', username);
+        localStorage.setItem('xerox_login_time', Date.now().toString());
+        
+        this.showMainApp();
+        
+        // Initialize app components
+        this.loadData();
+        this.setupEventListeners();
+        this.populateDefaultData();
+        this.updateDisplay();
+        this.checkSyncConfig();
+        this.autoSync();
+    }
+
+    logout() {
+        this.isLoggedIn = false;
+        localStorage.removeItem('xerox_logged_in');
+        localStorage.removeItem('xerox_username');
+        localStorage.removeItem('xerox_login_time');
+        
+        this.showLoginScreen();
+        
+        // Clear form
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('loginError').textContent = '';
+    }
+
+    showLoginScreen() {
+        document.getElementById('loginScreen').style.display = 'flex';
+        document.getElementById('mainApp').style.display = 'none';
+    }
+
+    showMainApp() {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('mainApp').style.display = 'block';
     }
 }
 
