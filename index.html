@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Controle de Cotas XEROX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Controle de Cotas XEROX</h1>
+            <div class="month-selector">
+                <label for="month">📅 Mês:</label>
+                <select id="month">
+                    <option value="janeiro">Janeiro</option>
+                    <option value="fevereiro">Fevereiro</option>
+                    <option value="marco">Março</option>
+                    <option value="abril">Abril</option>
+                    <option value="maio">Maio</option>
+                    <option value="junho">Junho</option>
+                    <option value="julho">Julho</option>
+                    <option value="agosto" selected>Agosto</option>
+                    <option value="setembro">Setembro</option>
+                    <option value="outubro">Outubro</option>
+                    <option value="novembro">Novembro</option>
+                    <option value="dezembro">Dezembro</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="actions">
+            <button id="addProfessor" class="btn-primary">➕ Adicionar Professor</button>
+            <button id="exportData" class="btn-secondary">💾 Exportar PDF</button>
+            <input type="file" id="importData" accept=".json" style="display: none;">
+            <button id="importBtn" class="btn-secondary">📁 Importar Dados</button>
+            <button id="syncBtn" class="btn-primary">☁️ Sincronizar</button>
+            <button id="configBtn" class="btn-secondary">⚙️ Configurar</button>
+        </div>
+
+        <div class="summary">
+            <div class="summary-item">
+                <span class="emoji">👥</span>
+                <div>
+                    <strong id="totalProfessors">0</strong>
+                    <small>Professores</small>
+                </div>
+            </div>
+            <div class="summary-item">
+                <span class="emoji">📄</span>
+                <div>
+                    <strong id="totalCopies">0</strong>
+                    <small>Cópias Totais</small>
+                </div>
+            </div>
+            <div class="summary-item">
+                <span class="emoji">📊</span>
+                <div>
+                    <strong id="usedCopies">0</strong>
+                    <small>Cópias Usadas</small>
+                </div>
+            </div>
+            <div class="summary-item">
+                <span class="emoji">📋</span>
+                <div>
+                    <strong id="remainingCopies">0</strong>
+                    <small>Cópias Restantes</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="professorsTable">
+                <thead>
+                    <tr>
+                        <th>👨‍🏫 Professor(a)</th>
+                        <th>📚 Disciplina</th>
+                        <th>📄 Cota</th>
+                        <th>📊 Usado</th>
+                        <th>📋 Restante</th>
+                        <th>💰 Desconto</th>
+                        <th>⚙️ Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="professorsBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para adicionar/editar professor -->
+    <div id="professorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">➕ Adicionar Professor</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="professorForm">
+                <div class="form-group">
+                    <label for="professorName">👨‍🏫 Nome do Professor:</label>
+                    <input type="text" id="professorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="discipline">📚 Disciplina:</label>
+                    <select id="discipline">
+                        <option value="Inglês">🇬🇧 Inglês</option>
+                        <option value="Ed. Física">🏃‍♂️ Ed. Física</option>
+                        <option value="Matemática">🔢 Matemática</option>
+                        <option value="História">📜 História</option>
+                        <option value="Ciência">🔬 Ciência</option>
+                        <option value="Língua Portuguesa">📝 Língua Portuguesa</option>
+                        <option value="Geografia">🌍 Geografia</option>
+                        <option value="Arte">🎨 Arte</option>
+                        <option value="Espanhol">🇪🇸 Espanhol</option>
+                        <option value="Adjunta / Prof de Orientação">👩‍💼 Adjunta / Prof de Orientação</option>
+                        <option value="Assistente Peb II">👩‍🏫 Assistente Peb II</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quota">📄 Cota de Cópias:</label>
+                    <input type="number" id="quota" min="0" value="400" required>
+                </div>
+                <div class="form-group">
+                    <label for="used">📊 Cópias Usadas:</label>
+                    <input type="number" id="used" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="discount">💰 Desconto (%):</label>
+                    <input type="number" id="discount" min="0" max="100" value="0" step="0.1">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">💾 Salvar</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">❌ Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para configuração do GitHub -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Configurar Sincronização</h2>
+                <span class="close-config">&times;</span>
+            </div>
+            <div class="config-content">
+                <h3>🔗 Como configurar:</h3>
+                <ol>
+                    <li>Acesse <a href="https://github.com/settings/tokens" target="_blank">GitHub Settings → Tokens</a></li>
+                    <li>Clique em "Generate new token (classic)"</li>
+                    <li>Marque as permissões: <code>repo</code></li>
+                    <li>Copie o token gerado e cole abaixo</li>
+                </ol>
+                
+                <div class="form-group">
+                    <label for="githubToken">🔑 Token do GitHub:</label>
+                    <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
+                </div>
+                
+                <div class="form-group">
+                    <label for="githubRepo">📂 Repositório (usuario/repositorio):</label>
+                    <input type="text" id="githubRepo" placeholder="seu-usuario/xerox-data">
+                </div>
+                
+                <div class="sync-status">
+                    <p id="syncStatus">❌ Não configurado</p>
+                </div>
+                
+                <div class="form-actions">
+                    <button id="testConnection" class="btn-primary">🔍 Testar Conexão</button>
+                    <button id="saveConfig" class="btn-primary">💾 Salvar Config</button>
+                    <button id="cancelConfig" class="btn-secondary">❌ Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
