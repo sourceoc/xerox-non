@@ -132,7 +132,7 @@
       "name": "Maria Ferreira",
       "discipline": "Geografia",
       "quota": 400,
-      "used": 0,
+      "used": 1,
       "discount": 0,
       "id": 1753785483254
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-29T10:41:08.621Z",
+  "lastModified": "2025-07-29T10:41:29.131Z",
   "totalCopies": 8750,
-  "usedCopies": 246
+  "usedCopies": 247
 }
