@@ -60,7 +60,7 @@
       "name": "Lara Cristina",
       "discipline": "Ciência",
       "quota": 400,
-      "used": 10,
+      "used": 75,
       "discount": 0,
       "id": 1753785483245
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-31T10:29:17.789Z",
+  "lastModified": "2025-07-31T10:29:40.778Z",
   "totalCopies": 8750,
-  "usedCopies": 924
+  "usedCopies": 989
 }
