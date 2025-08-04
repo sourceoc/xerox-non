@@ -124,7 +124,7 @@
       "name": "Neusa Cristina",
       "discipline": "Inglês",
       "quota": 400,
-      "used": 80,
+      "used": 98,
       "discount": 0,
       "id": 1753785483253
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-31T11:16:26.857Z",
+  "lastModified": "2025-07-31T11:17:07.177Z",
   "totalCopies": 8750,
-  "usedCopies": 1030
+  "usedCopies": 1048
 }
