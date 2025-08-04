@@ -84,7 +84,7 @@
       "name": "Murilo Alexandre",
       "discipline": "Língua Portuguesa",
       "quota": 400,
-      "used": 53,
+      "used": 67,
       "discount": 0,
       "id": 1753785483248
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-31T10:16:44.608Z",
+  "lastModified": "2025-07-31T10:17:21.184Z",
   "totalCopies": 8750,
-  "usedCopies": 1199
+  "usedCopies": 1213
 }
