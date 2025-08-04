@@ -108,7 +108,7 @@
       "name": "Natalia Carvalho",
       "discipline": "Adjunta / Prof de Orientação",
       "quota": 400,
-      "used": 12,
+      "used": 42,
       "discount": 0,
       "id": 1753785483251
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-07-31T11:17:07.177Z",
+  "lastModified": "2025-07-31T10:18:15.874Z",
   "totalCopies": 8750,
-  "usedCopies": 1048
+  "usedCopies": 1078
 }
