@@ -12,7 +12,7 @@
       "name": "Anselmo Provazi",
       "discipline": "Ed. Física",
       "quota": 400,
-      "used": 10,
+      "used": 20,
       "discount": 0,
       "id": 1753785483239
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-05T11:57:46.594Z",
+  "lastModified": "2025-08-05T12:23:19.642Z",
   "totalCopies": 8750,
-  "usedCopies": 1316
+  "usedCopies": 1326
 }
