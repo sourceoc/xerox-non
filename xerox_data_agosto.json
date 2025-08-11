@@ -44,7 +44,7 @@
       "name": "Cristina Ap.Canassa",
       "discipline": "Matemática",
       "quota": 400,
-      "used": 32,
+      "used": 35,
       "discount": 0,
       "id": 1753785483243
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-11T16:49:17.576Z",
+  "lastModified": "2025-08-11T17:32:44.149Z",
   "totalCopies": 8750,
-  "usedCopies": 1394
+  "usedCopies": 1397
 }
