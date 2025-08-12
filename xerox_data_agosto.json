@@ -52,7 +52,7 @@
       "name": "Iléia Ribeiro",
       "discipline": "Ciência",
       "quota": 400,
-      "used": 61,
+      "used": 62,
       "discount": 0,
       "id": 1753785483244
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-12T16:26:06.180Z",
+  "lastModified": "2025-08-12T16:35:39.083Z",
   "totalCopies": 8750,
-  "usedCopies": 1415
+  "usedCopies": 1416
 }
