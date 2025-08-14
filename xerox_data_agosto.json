@@ -164,7 +164,7 @@
       "name": "Renata Paulo",
       "discipline": "Arte",
       "quota": 400,
-      "used": 0,
+      "used": 16,
       "discount": 0,
       "id": 1753785483258
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-14T16:17:17.105Z",
+  "lastModified": "2025-08-14T16:18:40.170Z",
   "totalCopies": 8750,
-  "usedCopies": 1473
+  "usedCopies": 1489
 }
