@@ -92,7 +92,7 @@
       "name": "Sandra Cristina Lima",
       "discipline": "Língua Portuguesa",
       "quota": 400,
-      "used": 87,
+      "used": 86,
       "discount": 0,
       "id": 1753785483249
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-14T16:35:52.601Z",
+  "lastModified": "2025-08-14T16:36:06.277Z",
   "totalCopies": 8750,
-  "usedCopies": 1605
+  "usedCopies": 1604
 }
