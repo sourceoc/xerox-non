@@ -172,7 +172,7 @@
       "name": "Edna Marli",
       "discipline": "Assistente Peb II",
       "quota": 200,
-      "used": 14,
+      "used": 58,
       "discount": 0,
       "id": 1753785483259
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-14T16:19:15.570Z",
+  "lastModified": "2025-08-14T16:19:22.807Z",
   "totalCopies": 8750,
-  "usedCopies": 1516
+  "usedCopies": 1560
 }
