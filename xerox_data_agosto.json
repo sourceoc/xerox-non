@@ -156,7 +156,7 @@
       "name": "Eva Moreira",
       "discipline": "Língua Portuguesa",
       "quota": 400,
-      "used": 14,
+      "used": 17,
       "discount": 0,
       "id": 1753785483257
     },
@@ -194,7 +194,7 @@
     }
   ],
   "month": "agosto",
-  "lastModified": "2025-08-14T16:36:11.262Z",
+  "lastModified": "2025-08-14T16:49:14.771Z",
   "totalCopies": 8750,
-  "usedCopies": 1605
+  "usedCopies": 1608
 }
